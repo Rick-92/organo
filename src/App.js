@@ -5,7 +5,7 @@ import Time from './componentes/time';
 
 function App() {
 
-  const time = [
+  const [time,setTime] = useState([
 
     {
       nome: 'Programação',
@@ -42,27 +42,40 @@ function App() {
       corPrimaria: '#FF8A29',
       corSecundaria: '#FFEEDF'
     },
-  ]
+  ])
 
   const [colaboradores, setColaboradores] = useState([])
 
   const aoNovoColaboradorAdicionado = (colaborador) => {
-    debugger
     setColaboradores([...colaboradores, colaborador])
   }
+  function deletarColaborador (){
+    console.log('deletando colaborador')
+  }
 
+  function mudarCorDoTime (cor,nome){
+    setTime( time.map(time => {
+      if(time.nome === nome ){
+        time.corSecundaria = cor;
+      }
+      return time;
+    }))
+  }
   return (
 
     <div className="App">
       <Banner />
       <Formulario times={time.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} />
-      {time.map(time => <Time 
-           key={time.nome} 
+      {time.map((time,indice) => <Time 
+          mudarCor={mudarCorDoTime}
+           key={indice} 
            nome={time.nome} 
            corPrimaria={time.corPrimaria} 
            corSecundaria={time.corSecundaria}
            colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
-          />)}
+           aoDeletar={deletarColaborador}
+          />
+          )}
     </div>
   );
 }
