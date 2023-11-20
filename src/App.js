@@ -9,38 +9,31 @@ function App() {
 
     {
       nome: 'Programação',
-      corPrimaria: '#57c278',
-      corSecundaria: '#d9f7e9'
+      cor: '#d9f7e9'
     },
     {
       nome: 'Front-end',
-      corPrimaria: '#82CFFA',
-      corSecundaria: '#E8F8FF'
+      cor: '#E8F8FF'
     },
     {
       nome: 'Data science',
-      corPrimaria: '#A6D157',
-      corSecundaria: '#F0F8E2'
+      cor: '#F0F8E2'
     },
     {
       nome: 'Devops',
-      corPrimaria: '#E06B69',
-      corSecundaria: '#FDE7E8'
+      cor: '#FDE7E8'
     },
     {
       nome: 'UX e design',
-      corPrimaria: '#DB6EBF',
-      corSecundaria: '#FAE9F5'
+      cor: '#FAE9F5'
     },
     {
       nome: 'Mobile',
-      corPrimaria: '#FFBA05',
-      corSecundaria: '#FFF5D9'
+      cor: '#FFF5D9'
     },
     {
       nome: 'Inovação e Gestão',
-      corPrimaria: '#FF8A29',
-      corSecundaria: '#FFEEDF'
+      cor: '#FFEEDF'
     },
   ])
 
@@ -56,7 +49,7 @@ function App() {
   function mudarCorDoTime (cor,nome){
     setTime( time.map(time => {
       if(time.nome === nome ){
-        time.corSecundaria = cor;
+        time.cor = cor;
       }
       return time;
     }))
@@ -70,8 +63,7 @@ function App() {
           mudarCor={mudarCorDoTime}
            key={indice} 
            nome={time.nome} 
-           corPrimaria={time.corPrimaria} 
-           corSecundaria={time.corSecundaria}
+           cor={time.cor}
            colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
            aoDeletar={deletarColaborador}
           />
