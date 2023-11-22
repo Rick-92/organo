@@ -61,7 +61,7 @@ function App() {
     setColaboradores([...colaboradores, colaborador])
   }
   function deletarColaborador (id){ 
-    setColaboradores(colaboradores.filter(colaboradore => colaboradore.id !== id ))
+    setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id ))
     
   }
 

@@ -14,7 +14,7 @@ const Time = (props) => {
             <div className='colaboradores'>
             {props.colaboradores.map( (colaborador,indice) =>  {
                 console.log()
-            return <Colaborador corDeFundo={props.cor} key={props.indice} colaborador={props.colaborador} nome={colaborador.nome} cargo={colaborador.cargo} imagem={colaborador.imagem} aoDeletar={props.aoDeletar}/>
+            return <Colaborador corDeFundo={props.cor} key={indice} colaborador={props.colaborador} nome={colaborador.nome} cargo={colaborador.cargo} imagem={colaborador.imagem} aoDeletar={props.aoDeletar}/>
             })}
             </div>
         </section>
