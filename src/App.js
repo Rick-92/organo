@@ -83,6 +83,7 @@ function App() {
            key={indice} 
            nome={time.nome} 
            id={time.id}
+           time={time}
            cor={time.cor}
            colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
            aoDeletar={deletarColaborador}
