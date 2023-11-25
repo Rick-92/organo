@@ -2,7 +2,7 @@ import hexToRgba from 'hex-to-rgba';
 import Colaborador from '../Colaborador'
 import './time.css'
 
-const Time = ({ time, colaboradores, aoDeletar, mudarCor }) => {
+const Time = ({ time, colaboradores, aoDeletar, mudarCor,aoFavoritar }) => {
 
     const css = { backgroundImage: 'url(/imagens/fundo.png)', backgroundColor: hexToRgba(time.cor, "0.6") }
     return (
@@ -15,6 +15,7 @@ const Time = ({ time, colaboradores, aoDeletar, mudarCor }) => {
                 {colaboradores.map((colaborador, indice) => {
                     console.log()
                     return <Colaborador
+                        aoFavoritar={aoFavoritar}
                         corDeFundo={time.cor}
                         key={indice}
                         colaborador={colaborador}

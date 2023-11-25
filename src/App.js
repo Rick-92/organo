@@ -53,6 +53,7 @@ function App() {
       cargo: "Desenvolvedor fullstack ",
       imagem:"https://github.com/Rick-92.png",
       time: time[3].nome,
+      favorito: false
     },
   ]
   const [colaboradores, setColaboradores] = useState(inicial)
@@ -73,12 +74,26 @@ function App() {
       return time;
     }))
   }
+  function cadastrarTime (novoTime){
+    setTime([...time,{...novoTime, id: uuidv4()}])
+  }
+  function resolverFavoritos(id){
+    setColaboradores(colaboradores.map(colaborador => {
+      if(colaborador.id === id) colaborador.favorito = !colaborador.favorito
+      return colaborador
+    }))
+  }
   return (
 
     <div className="App">
       <Banner />
-      <Formulario times={time.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} />
+      <Formulario 
+          cadastrarTime={cadastrarTime}
+          times={time.map(time => time.nome)} 
+         aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)}
+       />
       {time.map((time,indice) => <Time 
+          aoFavoritar={resolverFavoritos}
           mudarCor={mudarCorDoTime}
            key={indice} 
            nome={time.nome} 

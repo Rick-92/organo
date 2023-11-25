@@ -1,7 +1,11 @@
-import { AiFillCloseCircle } from "react-icons/ai";
+import { AiFillCloseCircle,AiFillHeart,AiOutlineHeart  } from "react-icons/ai";
 import "./colaborador.css"
 
-const Colaborador = ({ nome, cargo, imagem, corDeFundo, aoDeletar ,colaborador}) => {
+const Colaborador = ({ nome, cargo, imagem, corDeFundo, aoDeletar ,colaborador,aoFavoritar}) => {
+    function favoritar (){
+        aoFavoritar(colaborador.id)
+    }
+
     return (<div className="colaborador">
         <AiFillCloseCircle 
         size={25} 
@@ -15,6 +19,12 @@ const Colaborador = ({ nome, cargo, imagem, corDeFundo, aoDeletar ,colaborador})
         <div className="rodape">
             <h4>{nome}</h4>
             <h5> {cargo}</h5>
+            <div className="favotirar">
+                {colaborador.favorito 
+                ? <AiFillHeart size={"25px"} onClick={favoritar} color="FF0000"/> 
+                : <AiOutlineHeart size={"15px"} onClick={favoritar}/>}
+
+            </div>
         </div>
 
     </div>
